@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Noble-Val | Création numérique sur mesure</title>
+    <meta name="description" content="Studio Noble-Val - Expertise en cartographie SIG, développement web et gamification">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/PCDLoader.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.5/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="logo">
+            <img src="logo.png" alt="Logo Studio Noble-Val" class="logo-img"> <!-- Ajoutez cette ligne -->
+            Studio Noble-Val
+        </div>
+        
+        <div class="nav-links">
+            <a href="#geo" class="nav-link">Cartographie & SIG</a>
+            <a href="#web" class="nav-link">Développement Web</a>
+            <a href="#games" class="nav-link">Jeux & Gamification</a>
+            <a href="#contact" class="nav-link contact-button">Contact</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div id="terrain-bg"></div>
+        <div class="contour-overlay"></div>
+        <div class="hero-content">
+            <h1>Cartographiez vos idées</h1>
+            <p class="subtitle">Notre expertise au service de vos territoires numériques</p>
+
+            <div class="hero-boxes"> <!-- Ajoutez un conteneur si ce n'est pas déjà fait -->
+
+                <!-- Boîte Géomatique -->
+                <a href="#geo" class="hero-box"> <!-- Enveloppez avec <a> et ajoutez href -->
+                    <div class="box-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Géomatique</h4>
+                    <p>Cartographie dynamique, analyse spatiale, SIG.</p>
+                </a>
+        
+                <!-- Boîte Web -->
+                <a href="#web" class="hero-box"> <!-- Enveloppez avec <a> et ajoutez href -->
+                    <div class="box-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Web</h4>
+                    <p>Applications sur mesure, API, visualisations data.</p>
+                </a>
+        
+                <!-- Boîte Jeux Vidéo -->
+                <a href="#games" class="hero-box"> <!-- Enveloppez avec <a> et ajoutez href -->
+                    <div class="box-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h4>Jeux Vidéo</h4>
+                    <p>Gamification, expériences interactives, R&D.</p>
+                </a>
+        
+            </div>
+
+<!--             <a href="#geo" class="scroll-down">
+                <span>Explorer</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a> -->
+        </div>
+    </header>
+
+    <main class="valley-scroll">
+        <!-- Cartographie & SIG Section -->
+        <section id="geo" class="section geo-section">
+            <div class="section-topo-bg geo-topo"></div>
+            <div class="container">
+                <h2 class="section-label">Cartographie & SIG</h2>
+                <div class="section-content">
+                    <h3>Donner du sens à vos données spatiales</h3>
+                    <p class="intro-text">
+                        Nous transformons vos données géographiques brutes en informations claires et en outils décisionnels puissants. Notre expertise couvre l'ensemble de la chaîne de valeur géomatique, de la collecte à la valorisation.
+                    </p>
+                    <div class="subsections">
+                        <div class="subsection" data-index="A">
+                            <h4>A. Gestion & Création de Données Spatiales</h4>
+                            <p>
+                                Structuration et administration de bases de données géographiques robustes (PostGIS), création de données par géoréférencement, analyse d'images (télédétection) et collecte optimisée sur le terrain via des solutions numériques mobiles (QField, OpenDataKit).
+                            </p>
+                        </div>
+                        <div class="subsection" data-index="B">
+                            <h4>B. Intégration SIG & Développements Métier</h4>
+                            <p>
+                                Maîtrise des Systèmes d'Information Géographique (SIG) pour des traitements spatiaux avancés. Développement de solutions sur mesure, notamment des plugins QGIS métier pour automatiser vos flux de travail et intégrer parfaitement la dimension spatiale à vos processus.
+                            </p>
+                        </div>
+                        <div class="subsection" data-index="C">
+                            <h4>C. Visualisation & Communication</h4>
+                            <p>
+                                Parce qu'une donnée n'a de valeur que si elle est comprise, nous créons des représentations cartographiques percutantes : cartes thématiques soignées, web-SIG interactifs (webmapping), infographies dynamiques et tableaux de bord (dashboards). L'objectif : rendre l'information spatiale accessible et intelligible pour tous les publics.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#contact" class="cta-button">Voir nos expertises Géo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web & Applications Section -->
+        <section id="web" class="section web-section">
+            <div class="section-topo-bg web-topo"></div>
+            <div class="container">
+                <h2 class="section-label">Web & Applications Modernes</h2>
+                <div class="section-content">
+                    <h3>Votre présence en ligne, performante et élégante</h3>
+                    <p class="intro-text">
+                        Nous concevons et développons des sites web et applications sur mesure, en utilisant les technologies modernes les plus adaptées à vos besoins : Python (Django, Flask) et JavaScript (React, Vue, Node.js).
+                    </p>
+                    <p>
+                        De la simple vitrine digitale à la plateforme métier complexe ou l'API robuste, nous nous engageons à livrer des solutions fluides, sécurisées, performantes et optimisées pour le référencement (SEO).
+                    </p>
+                    <div class="webmapping-focus">
+                        <h4>Focus Webmapping : La cartographie sur le Web</h4>
+                        <p>
+                            Nous sommes particulièrement experts dans l'intégration de la dimension cartographique au sein d'applications web :
+                        </p>
+                        <ul class="solution-list">
+                            <li>
+                                <strong>Solutions sur mesure :</strong> Développement d'applications de webmapping personnalisées, basées sur des bibliothèques open-source reconnues comme Leaflet ou OpenLayers, pour une flexibilité maximale.
+                            </li>
+                            <li>
+                                <strong>Visualisateurs avancés :</strong> Intégration et configuration de viewers cartographiques évolués tels que mViewer, offrant une richesse fonctionnelle et une grande capacité de personnalisation pour la consultation de données géographiques.
+                            </li>
+                            <li>
+                                <strong>Plateformes SIG mutualisées :</strong> Mise en place et déploiement de solutions comme LizMap, permettant de publier facilement et de manière sécurisée vos projets QGIS sur le web, avec gestion fine des droits utilisateurs.
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="cta-button">Explorer nos solutions Web</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games & Gamification Section -->
+        <section id="games" class="section games-section">
+            <div class="section-topo-bg games-topo"></div>
+            <div class="container">
+                <h2 class="section-label">Jeux Mobiles & Gamification</h2>
+                <div class="section-content">
+                    <h3>Au-delà du divertissement : l'innovation par le jeu</h3>
+                    <p class="intro-text">
+                        Si le jeu mobile est un loisir populaire, nous le voyons aussi comme un formidable vecteur d'innovation et d'engagement. Nous développons des expériences mobiles pour iOS et Android qui dépassent le simple divertissement.
+                    </p>
+                    <div class="gamification-focus">
+                        <h4>Gamification & Serious Games sur mesure</h4>
+                        <p>
+                            Nous mettons notre expertise en développement ludique au service de vos problématiques spécifiques :
+                        </p>
+                        <ul class="solution-list">
+                            <li>
+                                <strong>Apprentissage & Formation :</strong> Concevoir des "Serious Games" pour faciliter l'acquisition de compétences ou la compréhension de sujets complexes de manière interactive et motivante.
+                            </li>
+                            <li>
+                                <strong>Communication & Sensibilisation :</strong> Utiliser les mécaniques de jeu pour faire passer des messages importants, sensibiliser le public à une cause ou expliquer un projet de façon originale.
+                            </li>
+                            <li>
+                                <strong>Engagement Citoyen & Concertation :</strong> Développer des outils ludiques pour stimuler la participation citoyenne, faciliter la concertation et recueillir des avis sur des projets d'aménagement ou des politiques publiques.
+                            </li>
+                            <li>
+                                <strong>Innovation Managériale :</strong> Introduire des éléments de jeu (gamification) dans des processus métier pour augmenter la motivation, l'engagement et la performance des équipes.
+                            </li>
+                        </ul>
+                        <p>
+                            Discutons de comment le jeu peut devenir un atout stratégique et innovant pour votre organisation.
+                        </p>
+                    </div>
+                    <a href="#contact" class="cta-button">Innover par le jeu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-topo-bg contact-topo"></div>
+            <div class="container">
+                <div class="section-content">
+                    <h2>Prêt à concrétiser votre projet numérique ?</h2>
+                    <p class="intro-text">
+                        Cartographie percutante, application web innovante ou solution ludique engageante : discutons ensemble de la meilleure approche pour atteindre vos objectifs. Studio Noble-Val est votre partenaire pour une transformation numérique réussie.
+                    </p>
+                    
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="cta-button">Contactez Studio Noble-Val</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">Studio Noble-Val</div>
+                    <p class="tagline">Créativité & Technologie au service de vos données.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero" class="footer-link">Mentions Légales</a>
+                    <a href="mailto:contact@studio-nobleval.com" class="footer-link">contact@studio-nobleval.com</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Studio Noble-Val. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation shrink on scroll
+        const nav = document.getElementById('main-nav');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links (using getBoundingClientRect)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Empêche le saut par défaut
+                const targetId = this.getAttribute('href'); // Ex: "#geo"
+
+                // Gère explicitement le retour en haut pour # ou #hero
+                if (targetId === "#" || targetId === "#hero") {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return; // Arrête le traitement ici pour ces cas
+                }
+
+                // Essaye de trouver l'élément cible pour les autres ancres
+                try {
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // --- Calcul de la position absolue ---
+                        const elementRect = targetElement.getBoundingClientRect();
+                        const absoluteElementTop = elementRect.top + window.scrollY;
+                        // ------------------------------------
+
+                        // On défile vers cette position absolue.
+                        // Le décalage pour la nav fixe est toujours géré par CSS (scroll-margin-top)
+                        window.scrollTo({
+                            top: absoluteElementTop,
+                            behavior: 'smooth'
+                        });
+
+                    } else {
+                        // Optionnel: Gérer le cas où la cible n'existe pas (ne rien faire ou log une erreur discrète)
+                        console.warn("Smooth scroll target not found:", targetId); // Gardé un warn au cas où, mais peut être enlevé aussi
+                    }
+                } catch (error) {
+                    // Optionnel: Gérer les erreurs de sélecteur (ne rien faire ou log une erreur discrète)
+                    console.error("Smooth scroll error:", error); // Gardé un error au cas où, mais peut être enlevé aussi
+                }
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const terrainContainer = document.getElementById('terrain-bg');
+
+    if (terrainContainer) {
+        // --- Configuration de base Three.js ---
+        const scene = new THREE.Scene();
+        //scene.background = new THREE.Color(0x111111);
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 5000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true});
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        terrainContainer.appendChild(renderer.domElement);
+
+        // --- SUPPRIMER : Initialisation des Contrôles Orbit ---
+        // const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        // controls.enableDamping = true;
+        // controls.dampingFactor = 0.05;
+
+        // --- Éclairage ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(50, 100, 50);
+        scene.add(directionalLight);
+
+        // --- Variable pour stocker le mesh du terrain ---
+        let terrainMesh = null; // On déclare la variable ici pour y accéder dans animate
+
+        // --- Chargement du fichier PCD ---
+        const loader = new THREE.PCDLoader();
+
+        loader.load(
+            'data/lidar.pcd',
+            function (loadedPoints) {
+                console.log("PCD chargé, traitement pour maillage...");
+
+                // ... (1. Extraction des points LiDAR et calcul de l'étendue - INCHANGÉ) ...
+                const lidarPositions = loadedPoints.geometry.attributes.position.array;
+                const lidarPointsArray = [];
+                let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity, minZ = Infinity, maxZ = -Infinity;
+                for (let i = 0; i < lidarPositions.length; i += 3) {
+                    const x = lidarPositions[i];
+                    const y = lidarPositions[i + 1];
+                    const z = lidarPositions[i + 2];
+                    lidarPointsArray.push({ x: x, y: y, z: z });
+                    if (x < minX) minX = x; if (x > maxX) maxX = x;
+                    if (y < minY) minY = y; if (y > maxY) maxY = y;
+                    if (z < minZ) minZ = z; if (z > maxZ) maxZ = z;
+                }
+                console.log(`Étendue LiDAR: X[${minX}, ${maxX}], Y[${minY}, ${maxY}], Z[${minZ}, ${maxZ}]`);
+                loadedPoints.geometry.dispose();
+                loadedPoints.material.dispose();
+                if (lidarPointsArray.length === 0) {
+                    console.error("Aucun point LiDAR valide trouvé après chargement.");
+                    return;
+                }
+
+                // ... (2. Création du plan - INCHANGÉ) ...
+                const planeWidth = maxX - minX;
+                const planeHeight = maxY - minY;
+                const planeResolution = 100;
+                console.log(`Création du plan: ${planeWidth}x${planeHeight}, résolution ${planeResolution}x${planeResolution}`);
+                const planeGeometry = new THREE.PlaneGeometry(planeWidth, planeHeight, planeResolution, planeResolution);
+
+                // ... (3. Matériau filaire - INCHANGÉ) ...
+                const wireframeMaterial = new THREE.MeshPhongMaterial({
+                    color: 0x3a7e8c, wireframe: true, side: THREE.DoubleSide, shininess: 0
+                });
+
+                // ... (4. Déplacement des sommets - INCHANGÉ) ...
+                const planeVertices = planeGeometry.attributes.position.array;
+                const planeCenterX = minX + planeWidth / 2;
+                const planeCenterY = minY + planeHeight / 2;
+                function getElevationAt(x, y, points) { /* ... (code inchangé) ... */
+                    let closestPoint = null;
+                    let minDistanceSq = Infinity;
+                    for (const p of points) {
+                        const dx = p.x - x; const dy = p.y - y;
+                        const distanceSq = dx * dx + dy * dy;
+                        if (distanceSq < minDistanceSq) {
+                            minDistanceSq = distanceSq; closestPoint = p;
+                        }
+                    }
+                    return closestPoint ? closestPoint.z : minZ;
+                 }
+                console.log("Déplacement des sommets du plan...");
+                const startTime = performance.now();
+                for (let i = 0; i < planeVertices.length; i += 3) {
+                    const vertexWorldX = planeVertices[i] + planeCenterX;
+                    const vertexWorldY = planeVertices[i + 1] + planeCenterY;
+                    const elevation = getElevationAt(vertexWorldX, vertexWorldY, lidarPointsArray);
+                    planeVertices[i + 2] = elevation - minZ;
+                }
+                const endTime = performance.now();
+                console.log(`Déplacement des sommets terminé en ${(endTime - startTime).toFixed(2)} ms`);
+
+                // ... (5. Mettre à jour la géométrie - INCHANGÉ) ...
+                planeGeometry.attributes.position.needsUpdate = true;
+                planeGeometry.computeVertexNormals();
+
+                // 6. Créer le Mesh et l'assigner à la variable globale
+                terrainMesh = new THREE.Mesh(planeGeometry, wireframeMaterial); // Assignation ici
+
+                // 7. Positionner le maillage
+                const terrainHeight = maxZ - minZ;
+                terrainMesh.position.set(planeCenterX, planeCenterY, -terrainHeight / 2);
+                terrainMesh.rotation.x = -Math.PI / 2;
+
+                // 8. Ajouter à la scène
+                scene.add(terrainMesh);
+
+                // 9. Ajuster la caméra pour voir le nouveau mesh
+                const boundingBox = new THREE.Box3().setFromObject(terrainMesh);
+                const center = new THREE.Vector3();
+                boundingBox.getCenter(center);
+                const size = new THREE.Vector3();
+                boundingBox.getSize(size);
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const fov = camera.fov * (Math.PI / 180);
+                let cameraDist = Math.abs(Math.max(size.x, size.z) / 2 / Math.tan(fov / 2));
+                // cameraDist *= 1.5; // Gardé commenté pour un meilleur cadrage
+
+                // Positionner la caméra (peut rester fixe ou être ajustée une seule fois)
+                camera.position.set(center.x, center.y + cameraDist * 0.6 , center.z + cameraDist);
+                // SUPPRIMER : controls.target.copy(center);
+                camera.lookAt(center); // Faire regarder la caméra vers le centre du terrain
+
+                // Démarrer l'animation
+                animate();
+
+                // ... (logs de débogage - INCHANGÉ) ...
+                console.log("Terrain Center:", center);
+                console.log("Terrain Size:", size);
+                console.log("Calculated Camera Distance:", cameraDist);
+                console.log("Camera Position:", camera.position);
+                // SUPPRIMER : console.log("Controls Target:", controls.target);
+
+            },
+            // ... (callback de progression - INCHANGÉ) ...
+            // ... (callback d'erreur - INCHANGÉ) ...
+        );
+
+        // --- Animation ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // AJOUTER : Rotation automatique du terrain
+            if (terrainMesh) {
+                // Faites tourner autour de l'axe Z (vertical après la rotation initiale)
+                // Ajustez la vitesse (0.001) comme vous le souhaitez
+                terrainMesh.rotation.z += 0.001;
+            }
+
+            // SUPPRIMER : controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Gestion du redimensionnement (INCHANGÉ) ---
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    } else {
+        console.error("L'élément conteneur 'terrain-bg' n'a pas été trouvé.");
+    }
+});
+
+
+// Le reste de votre code (GSAP, formulaire, etc.) reste inchangé après ce bloc.
+// Initialize GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// ... (le reste de votre code GSAP et formulaire) ...
+
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animation for section entrances
+        gsap.utils.toArray(".section").forEach(section => {
+            gsap.fromTo(
+                section.querySelector(".section-content"),
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+        
+        // Parallax effect for topo backgrounds
+        gsap.utils.toArray(".section-topo-bg").forEach(bg => {
+            gsap.to(bg, {
+                y: '20%',
+                ease: "none",
+                scrollTrigger: {
+                    trigger: bg.parentElement,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+        
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real implementation, you would send the form data to a server
+                // For this static version, we'll just show a success message
+                
+                const formData = new FormData(contactForm);
+                let formValues = {};
+                
+                formData.forEach((value, key) => {
+                    formValues[key] = value;
+                });
+                
+                console.log("Form submitted with values:", formValues);
+                
+                // Show success message
+                contactForm.innerHTML = `
+                    <div class="form-success">
+                        <h3>Message envoyé avec succès !</h3>
+                        <p>Merci de nous avoir contacté. Nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
